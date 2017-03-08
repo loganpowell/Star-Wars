@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>character template</title>
+  <style>
+    .panel {
+      height: 300px;
+      width: 150px;
+      /*border: 1px dotted grey;*/
+      position: relative;
+      font-size: 1em;
+    }
+    .top {
+      height: 20px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      /*border: 1px dotted grey;*/
+    }
+    .bottom {
+      height: 20px;
+      width: 100%;
+      /*border: 1px dotted grey;*/
+      position: absolute;
+      bottom: 0;
+    }
+    .top> div, .bottom> div {
+      width: 50%;
+      height: 100%;
+      background-color: #424244;
+      opacity: 0.5;
+      float: left;
+      color: white;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="character">
+
+    <div class="panel">
+      <img src="" alt="">
+      <div class="stats top">
+        <div class="side"></div>
+        <div class="HP"></div>
+      </div>
+      <div class="stats bottom">
+        <div class="name"></div>
+        <div class="life"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+
+  <script>
+  var character = {
+    name: "Ackbar",
+    side: "Force",
+    life: 60,
+    hp: 30,
+    active: false,
+    dead: false,
+    img: "./img/for-03.jpg"
+  }
+
+  var html = [
+    '<div class="panel">',
+      '<img src="' + character.img + '" alt="' + character.name + '">',
+      '<div class="stats top">',
+        '<div class="side"> SIDE: ' + character.side + '</div>',
+        '<div class="HP"> HP: ' + character.hp + '</div>',
+      '</div>',
+      '<div class="stats bottom">',
+        '<div class="name">' + character.name + '</div>',
+        '<div class="life"> LIFE: ' + character.life + '</div>',
+      '</div>',
+    '</div>'
+  ].join("\n")
+
+  $(document).ready(function() {
+
+    $('.character').append(html)
+
+  });
+  </script>
+</body>
+</html>
